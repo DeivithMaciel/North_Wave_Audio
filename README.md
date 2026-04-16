@@ -3,3 +3,4 @@ This project provides an initial setup for a React application built with Vite a
 The first commit was created during an EBAC class session, with subsequent commits developed independently as part of continued learning and experimentation.
 
 Feel free to use, modify, or build upon this project.
+
