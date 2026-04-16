@@ -1,8 +1,33 @@
+import { useEffect, useRef, useState } from "react"
 import { Container } from "./styles"
 
 export const Header = () => {
+  const [showHeader, setShowHeader] = useState(true)
+  const lastScrollY = useRef(0)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScroll = window.scrollY
+
+      if (currentScroll < 50) {
+        setShowHeader(true)
+        lastScrollY.current = currentScroll
+        return
+      }
+      if (currentScroll > lastScrollY.current) {
+        setShowHeader(false)
+      } else {
+        setShowHeader(true)
+      }
+      lastScrollY.current = currentScroll
+    }
+    window.addEventListener('scroll', handleScroll)
+
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
-    <Container>
+    <Container className={`${showHeader ? 'show' : 'hide'}`}>
         <h1><a href="#">NØRTH WAVE</a></h1>
       <ul>
         <li>

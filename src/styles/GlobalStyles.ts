@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components'
 
 export const colors = {
   orangeMain: '#F27A1A',
@@ -31,10 +31,20 @@ export const GlobalStyle = createGlobalStyle`
   ul {
     padding-left: 0;
     list-style: none;
+
+    a {
+    color: inherit;
+    text-decoration: none;
+    }
   }
 
   .container {
     max-width: 1200px;
     width: 100%;
+    margin: 0 auto;
+  }
+
+  h1, h2, h3 {
+    margin: 0;
   }
 `

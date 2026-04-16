@@ -5,11 +5,13 @@ import { colors } from '../../styles/GlobalStyles'
 export const Container = styled.header`
   background: linear-gradient(
     140deg,
-    ${colors.orangeDark},
+    ${colors.orangeLight},
     ${colors.orangeMain},
-    ${colors.orangeLight}
-  )
-  ;
+    ${colors.orangeDark},
+    ${colors.brownDark},
+    ${colors.brownDeep},
+    ${colors.black}
+  );
   color: ${colors.gray};
   display: flex;
   justify-content: space-between;
@@ -17,9 +19,27 @@ export const Container = styled.header`
   align-items: center;
   font-weight: bold;
 
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  transition: transform 0.3s ease-in-out;
+
+  &.show {
+    transform: translateY(0);
+  }
+  &.hide {
+    transform: translateY(-100%);
+  }
+
   h1 {
     padding-left: 64px;
     cursor: pointer;
+    color: ${colors.brownDeep};
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
   }
 
   ul {
@@ -33,7 +53,7 @@ export const Container = styled.header`
       border-radius: 8px;
 
       &:hover {
-        background-color: ${colors.orangeDark};
+        background-color: ${colors.brownDark};
       }
     }
   }
