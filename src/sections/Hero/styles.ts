@@ -78,4 +78,20 @@ export const Container = styled.div`
       text-align: left;
     }
   }
+
+  @media (max-width: ${breakpoints.mobile}) {
+    text-align: center;
+
+    h2 {
+      text-align: center;
+    }
+
+    form {
+      flex-direction: column;
+
+      input:: placeholder {
+      font-size: 14px;
+      }
+    }
+  }
 `

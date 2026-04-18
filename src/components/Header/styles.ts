@@ -71,4 +71,10 @@ export const Container = styled.header`
       }
     }
   }
+
+  @media (max-width: ${breakpoints.mobile}) {
+    ul {
+      display: none;
+    }
+  }
 `
