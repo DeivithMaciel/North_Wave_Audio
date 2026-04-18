@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import background from '../../assets/images/hero.png'
-import { colors } from "../../styles/GlobalStyles";
+import { breakpoints, colors } from "../../styles/GlobalStyles";
 
 export const Container = styled.div`
   background-image: url(${background});
@@ -25,7 +25,7 @@ export const Container = styled.div`
 
   h4 {
     font-size: 18px;
-    padding: 40px 0;
+    padding: 64px 0;
   }
 
   span {
@@ -34,7 +34,7 @@ export const Container = styled.div`
 
   form {
     display: flex;
-    padding: 16px;
+    padding: 16px 16px 56px;
     gap: 48px;
 
     input {
@@ -64,6 +64,18 @@ export const Container = styled.div`
       &:hover {
         filter: brightness(1.3);
       }
+    }
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    div {
+      padding: 16px;
+      max-width: 480px;
+    }
+
+    h2 {
+      font-size: 36px;
+      text-align: left;
     }
   }
 `

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { colors } from '../../styles/GlobalStyles'
+import { breakpoints, colors } from '../../styles/GlobalStyles'
 
 export const Container = styled.header`
   background: linear-gradient(
@@ -54,6 +54,20 @@ export const Container = styled.header`
 
       &:hover {
         background-color: ${colors.brownDark};
+      }
+    }
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    h1 {
+      padding-left: 8px;
+    }
+
+    ul {
+      padding-right: 8px;
+
+      li {
+        font-size: 18px;
       }
     }
   }

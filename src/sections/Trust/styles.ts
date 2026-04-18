@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { colors } from "../../styles/GlobalStyles";
+import { breakpoints, colors } from "../../styles/GlobalStyles";
 
 export const Container = styled.div`
   background-color: ${colors.brownDeep};
@@ -30,6 +30,26 @@ export const Container = styled.div`
       h3 {
         font-size: 32px;
         padding-bottom: 16px;
+      }
+    }
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    padding: 96px 0;
+
+    h2 {
+      font-size: 36px;
+    }
+
+    ul {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 8px 24px;
+
+      li {
+        h3 {
+          font-size: 24px;
+        }
       }
     }
   }
