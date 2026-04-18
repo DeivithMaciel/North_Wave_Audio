@@ -1,5 +1,9 @@
-import styled from "styled-components";
-import { breakpoints, colors } from "../../styles/GlobalStyles";
+import styled from "styled-components"
+import { colors } from "../../styles/GlobalStyles"
+
+interface UlProps {
+  $isMobile: boolean
+}
 
 export const Container = styled.div`
   background-color: ${colors.brownDeep};
@@ -11,21 +15,56 @@ export const Container = styled.div`
     font-size: 48px;
     padding-bottom: 48px;
   }
+`
 
-  ul {
+export const List = styled.ul<UlProps>`
+  display: flex;
+  justify-content: center;
+  padding: 48px;
+  gap: 48px;
+
+  ${({ $isMobile }) =>
+  $isMobile
+    ? `
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+
+  gap: 16px;
+  padding: 16px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  li {
+    flex: 0 0 90%;
+    scroll-snap-align: center;
+
+    background-color: ${colors.brownDark};
+    min-height: 420px;
+
     display: flex;
-    justify-content: center;
-    padding: 48px;
-    gap: 48px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 
+    border-radius: 8px;
+    padding: 8px;
+  }
+`
+      : `
     li {
       background-color: ${colors.brownDark};
       width: 280px;
       min-height: 420px;
+
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
+
       text-align: center;
       border-bottom: 1px solid ${colors.orangeDark};
       border-top: 1px solid ${colors.orangeDark};
@@ -39,26 +78,13 @@ export const Container = styled.div`
         transform: translateY(-6px);
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
       }
-
-      img {
-        width: 100%;
-        height: 220px;
-        object-fit: cover;
-        border-radius: 8px;
-      }
     }
-  }
+  `}
 
-  @media (max-width: ${breakpoints.tablet}) {
-    ul {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      justify-items: center;
-
-      li {
-        width: 100%;
-        max-width: 360px;
-      }
-    }
+  li img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
   }
 `
